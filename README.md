@@ -69,6 +69,8 @@ You can listen for inbound mails in your own applications by connecting a receiv
     
     def my_callback(sender, **kwargs):
       # Expect mail_data and mail_object keyword arguments
+      mail_data = kwargs.get('mail_data')
+      mail_object = kwargs.get('mail_object')
       count_attachments = mail_object.attachments.count()
       count_headers = mail_object.headers.count()
       print("Email  received!")
