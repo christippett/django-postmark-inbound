@@ -1,0 +1,8 @@
+*.pyc
+__pycache__
+*.DS_Store
+static/
+media/
+dist/
+db.sqlite3
+*.egg*
