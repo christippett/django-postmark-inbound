@@ -61,16 +61,16 @@ By default the endpoint is `inbound`, therefore the inbound URL for our webhook 
 
 Successful submissions from Postmark will return a `202 Accepted` response.
 
-# New mail signal
+# Inbound mail received signal
 
 You can listen for inbound mails in your own applications by connecting a receiver function to the `inbound_mail_received` signal.
 
     from postmark_inbound.signals import inbound_mail_received
     
     def my_callback(sender, **kwargs):
-      # Expect mail_data and mail_model keyword arguments
-      count_attachments = mail_model.attachments.count()
-      count_headers = mail_model.headers.count()
+      # Expect mail_data and mail_object keyword arguments
+      count_attachments = mail_object.attachments.count()
+      count_headers = mail_object.headers.count()
       print("Email  received!")
     
     inbound_mail_received.connect(my_callback)
